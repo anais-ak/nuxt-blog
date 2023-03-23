@@ -3,41 +3,18 @@
     <section class="introduction">
       <h1>Latest news</h1>
     </section>
-    <PostsPreview
-      id="1"
-      thumbnail="https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200"
-      previewText="Lorem ipsum dolor sit amet"
-      title="Title"
-    />
-    <PostsPreview
-      id="1"
-      thumbnail="https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200"
-      previewText="Lorem ipsum dolor sit amet"
-      title="Title"
-    />
-    <PostsPreview
-      id="1"
-      thumbnail="https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200"
-      previewText="Lorem ipsum dolor sit amet"
-      title="Title"
-    />
-    <PostsPreview
-      id="1"
-      thumbnail="https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200"
-      previewText="Lorem ipsum dolor sit amet"
-      title="Title"
-    />
+    <PostsList />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import PostsPreview from "~/components/Posts/PostsPreview.vue";
+import PostsList from "@/components/Posts/PostsList.vue";
 
 export default Vue.extend({
   name: "IndexPage",
   components: {
-    PostsPreview,
+    PostsList,
   },
 });
 </script>
@@ -60,11 +37,7 @@ export default Vue.extend({
   width: 90%;
   font-size: 1.5rem;
   color: black;
-  background-color: rgba(211, 211, 211, 0.2);
   padding: 10px;
-  box-shadow: 3px 3px 3px black;
-  box-sizing: border-box;
-  border: 1px solid black;
 }
 
 @media (min-width: 768px) {
