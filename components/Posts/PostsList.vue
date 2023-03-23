@@ -1,35 +1,27 @@
 <template>
   <section class="post-list">
-    <PostsPreview
-      id="1"
-      thumbnail="https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200"
-      previewText="Lorem ipsum dolor sit amet"
-      title="Title"
-    />
-    <PostsPreview
-      id="1"
-      thumbnail="https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200"
-      previewText="Lorem ipsum dolor sit amet"
-      title="Title"
-    />
-    <PostsPreview
-      id="1"
-      thumbnail="https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200"
-      previewText="Lorem ipsum dolor sit amet"
-      title="Title"
-    />
-    <PostsPreview
-      id="1"
-      thumbnail="https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200"
-      previewText="Lorem ipsum dolor sit amet"
-      title="Title"
-    />
+    <PostsPreview :is-admin="isAdmin" :post="post" />
+    <PostsPreview :is-admin="isAdmin" :post="post" />
+    <PostsPreview :is-admin="isAdmin" :post="post" />
+    <PostsPreview :post="post" />
   </section>
 </template>
 
 <script>
-import PostsPreview from "@/components/Posts/PostsPreview.vue";
+import PostsPreview from "@/components/Posts/PostPreview.vue";
 export default {
+  data() {
+    return {
+      isAdmin: "isAdmin",
+      post: {
+        id: "1",
+        thumbnail:
+          "https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200",
+        previewText: "Lorem ipsum dolor sit amet",
+        title: "Title",
+      },
+    };
+  },
   name: "PostsList",
   components: {
     PostsPreview,
