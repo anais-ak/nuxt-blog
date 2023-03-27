@@ -3,18 +3,29 @@
     <section class="introduction">
       <h1>Latest news</h1>
     </section>
-    <PostsList />
+    <PostsList :posts="postList" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import PostsList from "@/components/Posts/PostsList.vue";
+import { getAllPosts } from "@/utils/mocks/PostMock";
 
 export default Vue.extend({
   name: "IndexPage",
   components: {
     PostsList,
+  },
+
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({
+          postList: getAllPosts(3),
+        });
+      }, 1000);
+    }).then((data) => data);
   },
 });
 </script>

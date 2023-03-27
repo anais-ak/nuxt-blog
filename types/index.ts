@@ -1,6 +1,5 @@
-export interface PostType {
+export interface PostI {
   id: String;
-  isAdmin: String;
   title: String;
   previewText: String;
   thumbnail: String;

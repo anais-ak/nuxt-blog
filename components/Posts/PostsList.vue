@@ -1,26 +1,25 @@
 <template>
   <section class="post-list">
-    <PostsPreview :is-admin="isAdmin" :post="post" />
-    <PostsPreview :is-admin="isAdmin" :post="post" />
-    <PostsPreview :is-admin="isAdmin" :post="post" />
-    <PostsPreview :post="post" />
+    <PostsPreview
+      v-for="post in posts"
+      :key="post.id"
+      :is-admin="true"
+      :post="post"
+    />
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import PostsPreview from "@/components/Posts/PostPreview.vue";
+import { PropType } from "vue";
+import { PostI } from "@/types";
+import { getAllPosts } from "@/utils/mocks/PostMock";
 export default {
-  data() {
-    return {
-      isAdmin: true,
-      post: {
-        id: "1",
-        thumbnail:
-          "https://imageio.forbes.com/specials-images/dam/imageserve/1171238184/0x0.jpg?format=jpg&width=1200",
-        previewText: "Lorem ipsum dolor sit amet",
-        title: "Title",
-      },
-    };
+  props: {
+    posts: {
+      type: Array as PropType<PostI[]>,
+      required: true,
+    },
   },
   name: "PostsList",
   components: {

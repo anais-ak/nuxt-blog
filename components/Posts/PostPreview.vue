@@ -17,12 +17,12 @@
 
 <script lang="ts">
 import { PropType } from "vue";
-import { PostType } from "@/types";
+import { PostI } from "@/types";
 export default {
   name: "PostPreview",
   props: {
     post: {
-      type: Object as PropType<PostType>,
+      type: Object as PropType<PostI>,
       required: true,
     },
     isAdmin: {
