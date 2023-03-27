@@ -1,6 +1,6 @@
 <template>
   <section class="featured-posts">
-    <nuxt-link :to="'/posts/' + post.id" class="post-preview">
+    <nuxt-link :to="postLink" class="post-preview">
       <article>
         <div
           class="post-thumbnail"
@@ -15,14 +15,27 @@
   </section>
 </template>
 
-<script>
-import { PostType } from "@/types/Post";
+<script lang="ts">
+import { PropType } from "vue";
+import { PostType } from "@/types";
 export default {
   name: "PostPreview",
   props: {
     post: {
-      type: PostType,
+      type: Object as PropType<PostType>,
       required: true,
+    },
+    isAdmin: {
+      type: Boolean,
+      required: true,
+    },
+  },
+
+  computed: {
+    postLink(): string {
+      return this.isAdmin
+        ? `/admin/post/${this.post.id}`
+        : `/post/${this.post.id}`;
     },
   },
 };

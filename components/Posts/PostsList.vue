@@ -12,7 +12,7 @@ import PostsPreview from "@/components/Posts/PostPreview.vue";
 export default {
   data() {
     return {
-      isAdmin: "isAdmin",
+      isAdmin: true,
       post: {
         id: "1",
         thumbnail:
